@@ -32,9 +32,14 @@ const Edit = () => {
             console.log(error)
         }
     }   
-    let a = Number(product.price)
-    let b = Number(product.discountPercentage)
-    let discount = a - ((a * b)/ 100)
+
+    let discount = () =>{
+        let a = Number(product.price)
+        let b = Number(product.discountPercentage)
+        return a - ((a * b)/ 100)
+    }
+
+    let discountPrice = discount();
 
 
     const onDelete = () => {
@@ -92,7 +97,7 @@ const Edit = () => {
                     <img src={product.thumbnail} alt=''></img>
                     <p>Price {product.price} $</p>                                
                     <p> Discount: {product.discountPercentage} %</p>
-                    <p>Final PRICE: {discount} $</p>
+                    <p>Final PRICE: {discountPrice} $</p>
                     <hr/>
                 </div> }
                 {isEdit
