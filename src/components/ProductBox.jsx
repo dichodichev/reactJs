@@ -5,9 +5,13 @@ import { Link } from 'react-router-dom'
 const ProductBox = (props) => {
 
     
-    var a = Number(props.price)
-    var b = Number(props.discountPercentage)
-    var discount = a - ((a * b)/ 100)
+    let discount = () =>{
+        let a = Number(props.price)
+        let b = Number(props.discountPercentage)
+        return a - ((a * b)/ 100)
+    }
+
+    let discountPrice = discount();
 
     return (
         <div className='post-box'>
@@ -16,7 +20,7 @@ const ProductBox = (props) => {
             <p>Price: {props.price} $</p>
             <p>In stock: {props.stock}</p>
             <p>discountPercentage: {props.discountPercentage} %</p>
-            <p>New Price: {discount}  $</p>
+            <p>New Price: {discountPrice}  $</p>
             <Link to={`/${props.id}/edit`}><h2><button>Edit</button></h2></Link>
             <img src={props.thumbnail} alt="" />
             
