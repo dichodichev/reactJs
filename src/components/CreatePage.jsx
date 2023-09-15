@@ -18,6 +18,7 @@ const CreatePage = () => {
             })
             const data = await response.json();
             console.log(`new post ${data}`)
+            window.alert(`New product has been created: ${JSON.stringify(data)}`)
         } catch (error) {
             console.log(error)
         }
