@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router';
 import { routes } from '../utils/constants';
 import DeleteModal from './DeleteModal';
+import { useDiscount } from '../hooks/UseDiscount';
 
 const ProductPage = () => {
 
@@ -30,9 +31,9 @@ const ProductPage = () => {
             console.log(error)
         }
     }   
-    let a = Number(product.price)
-    let b = Number(product.discountPercentage)
-    let discount = a - ((a * b)/ 100)
+
+
+    const discount = useDiscount(product);
 
 
     const onDelete = () => {
